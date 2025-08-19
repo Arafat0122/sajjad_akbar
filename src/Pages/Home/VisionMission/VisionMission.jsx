@@ -2,18 +2,19 @@ import { FaBullseye, FaRocket } from "react-icons/fa";
 
 const VisionMission = () => {
   return (
-    <section className="bg-[#0B0B0B] text-white py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Decorative golden line */}
-        <div className="h-1 w-48 mx-auto mb-12 bg-gradient-to-r from-[#D4AF37] via-[#E8C97E] to-[#D4AF37] rounded-full shadow-[0_0_20px_#D4AF3770]" />
-
-        {/* Section Title */}
-        <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-[#F8F5E3] text-center mb-20 drop-shadow-xl">
+    <section className="px-6 py-10 md:py-24 ">
+      <div className="mx-auto max-w-7xl">
+      
+        <h2 className="mb-10 font-serif text-3xl font-extrabold text-center md:mb-20 sm:text-5xl drop-shadow-xl">
           Vision & Mission
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Vision */}
+        <div className="flex flex-col gap-10 md:flex-row">
+          <div className="flex-1">
+            <img src="./mq.png" alt="" className="object-cover h-full rounded-xl"/>
+          </div>
+          <div className="flex-1 space-y-10">
+ 
           <div
             className="flex flex-col items-start gap-6 bg-[#141414] rounded-3xl p-10 shadow-lg border border-[#2A2A2A] hover:shadow-[#D4AF3760] transition-shadow duration-300"
             role="region"
@@ -40,7 +41,7 @@ const VisionMission = () => {
             </p>
           </div>
 
-          {/* Mission */}
+
           <div
             className="flex flex-col items-start gap-6 bg-[#141414] rounded-3xl p-10 shadow-lg border border-[#2A2A2A] hover:shadow-[#D4AF3760] transition-shadow duration-300"
             role="region"
@@ -66,6 +67,9 @@ const VisionMission = () => {
             </p>
           </div>
         </div>
+        </div>
+
+        
       </div>
     </section>
   );

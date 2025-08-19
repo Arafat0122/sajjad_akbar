@@ -41,13 +41,13 @@ const socialLinks = [
 
 const GetInTouch = () => {
     return (
-        <section className="bg-[#0B0B0B] text-white py-20 px-6">
+        <section className="px-6 py-20 text-white ">
             <div className="max-w-6xl mx-auto">
                 {/* Gold Accent Line */}
                 <div className="h-1 w-48 mx-auto mb-12 bg-gradient-to-r from-[#D4AF37] via-[#E8C97E] to-[#D4AF37] rounded-full shadow-[0_0_20px_#D4AF3770]" />
 
                 {/* Title */}
-                <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-center mb-16 drop-shadow-xl">
+                <h2 className="mb-16 font-serif text-3xl font-extrabold text-center sm:text-4xl drop-shadow-xl">
                     Get in Touch
                 </h2>
 
@@ -131,7 +131,7 @@ const GetInTouch = () => {
                             <h3 className="text-2xl font-serif font-semibold text-[#E8C97E] mb-6">
                                 Connect with me
                             </h3>
-                            <div className="flex gap-6 justify-center md:justify-start">
+                            <div className="flex justify-center gap-6 md:justify-start">
                                 {socialLinks.map(({ id, icon, url, label }) => (
                                     <a
                                         key={id}

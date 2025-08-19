@@ -6,7 +6,7 @@ import WhatsappButton from "../Common/WhatsappButton/WhatsappButton";
 
 const Root = () => {
     return (
-        <div className="bg-[#0B0B0B]">
+        <div className="bg-white">
             <Navbar />
             <div className="pt-16">
                 <WhatsappButton />

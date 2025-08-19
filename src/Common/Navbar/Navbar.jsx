@@ -16,10 +16,10 @@ const Navbar = () => {
     ];
 
     const activeClass = "text-[#D4AF37] font-semibold border-b-2 border-[#D4AF37]";
-    const inactiveClass = "text-[#F8F5E3] hover:text-[#D4AF37] transition";
+    const inactiveClass = "text-black hover:text-[#D4AF37] transition";
 
     return (
-        <nav className="bg-[#0B0B0B] bg-opacity-95 backdrop-blur shadow-md fixed w-full z-50">
+        <nav className="bg-[#ffffff] bg-opacity-95 backdrop-blur shadow-md fixed w-full z-50">
             <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
                 {/* Logo */}
                 <NavLink to="/" className="flex items-center">
