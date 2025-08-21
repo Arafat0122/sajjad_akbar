@@ -14,11 +14,12 @@ const Home = () => {
         <div>
             <Hero />
             <About/>
+            <WhatIDo />
             
-            <FeaturedWorks />
+            
             <BentoGrid/>
             <VisionMission />
-            <WhatIDo />\
+            <FeaturedWorks />
             
             {/* <GetInTouch /> */}
             <WeDO/>

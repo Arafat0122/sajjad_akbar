@@ -3,9 +3,9 @@ import poster1 from "/poster1.jpg";
 
 const BentoGrid = () => {
   return (
-    <div className="px-6 mx-auto md:py-20 max-w-7xl">
+    <div className="px-6 mx-auto md:pb-20 max-w-7xl">
      
-      <h4 className="pb-10 text-2xl text-black">Sajjad Akbar on Best Work</h4>
+      <h4 className="pb-10 text-2xl font-bold text-black">Sajjad Akbar on Best Work</h4>
 
     
       <div className="grid gap-4 cursor-pointer md:grid-cols-2">

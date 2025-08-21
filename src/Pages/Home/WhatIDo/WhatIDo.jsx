@@ -54,7 +54,7 @@ const services = [
 
 const WhatIDo = () => {
     return (
-        <section className="bg-[#0B0B0B]  min-h-screen text-white pt-20 px-6 ">
+        <section className="px-6 py-20 ">
             <div className="mx-auto text-center max-w-7xl">
                 {/* Gold Accent Line */}
               
