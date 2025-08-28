@@ -1,30 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './HeroStyle.css';
+import React, { useEffect, useRef, useState } from "react";
 
 const slides = [
   {
-    video: 'video1.mp4',
-    quote: 'A guide in the light of the Quran and Sunnah,',
-    highlight: 'sharing timeless wisdom in a modern world.',
-    name: 'Sajjad Akbar',
+    type: "video",
+    src: "video2.mp4",
+    quote: "In pursuit of truth and understanding,",
+    highlight: "bridging ancient wisdom with modern life.",
+    name: "Sajjad Akbar",
   },
   {
-    video: 'video2.mp4',
-    quote: 'In pursuit of truth and understanding,',
-    highlight: 'bridging ancient wisdom with modern life.',
-    name: 'Sajjad Akbar',
+    type: "image",
+    src: "https://umudakosanlar.org.tr/Assets/Images/Slider/00033/hz-meryem-cami-ve-egitim-merkezi--video.jpe",
+    quote: "",
+    highlight: "",
+    name: "",
   },
   {
-    video: 'video3.mp4',
-    quote: 'Leading with integrity and compassion,',
-    highlight: 'inspiring the hearts of many.',
-    name: 'Sajjad Akbar',
-  },
-  {
-    video: 'video4.mp4',
-    quote: 'Rooted in tradition, yet embracing change,',
-    highlight: 'for a brighter, guided future.',
-    name: 'Sajjad Akbar',
+    type: "video",
+    src: "video3.mp4",
+    quote: "Rooted in tradition, yet embracing change,",
+    highlight: "for a brighter, guided future.",
+    name: "Sajjad Akbar",
   },
 ];
 
@@ -32,45 +28,102 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
 
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-
+      nextSlide();
+    }, 9000);
     return () => clearInterval(interval);
   }, []);
 
+  // Update transform on slide change
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
   }, [currentSlide]);
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
   return (
-    <section className="hero-slider-wrapper">
-      <div className="hero-slider" ref={sliderRef}>
+    <section className="relative w-full h-screen overflow-hidden">
+      {/* Slides wrapper */}
+      <div
+        ref={sliderRef}
+        className="flex h-full transition-transform duration-1000 ease-in-out"
+      >
         {slides.map((slide, index) => (
-          <div className="hero-slide" key={index}>
-            <video
-              src={slide.video}
-              autoPlay
-              muted
-              loop
-              className="slider-video"
-            />
-            <div className="hero-overlay"></div>
-            <div className="hero-text">
-              <span className="quote-mark">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-3xl sm:text-4xl text-[#D4AF37] mb-4 mx-auto md:mx-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"></path></svg>
-              </span>
-              <p>
-                <em>{slide.quote}</em>{' '}
-                <br></br>
-                <em className="highlight">{slide.highlight}</em>
-              </p>
-              <h1>{slide.name}</h1>
-            </div>
+          <div key={index} className="relative flex-shrink-0 w-full h-full">
+            {slide.type === "video" ? (
+              <video
+                src={slide.src}
+                autoPlay
+                muted
+                loop
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <img
+                src={slide.src}
+                alt="slide"
+                className="w-full h-full object-cover"
+              />
+            )}
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 z-10"></div>
+
+            {/* Text content */}
+            {(slide.quote || slide.name) && (
+              <div className="absolute bottom-10 left-5 sm:bottom-16 sm:left-10 md:bottom-20 md:left-16 lg:bottom-24 lg:left-24 z-20 text-white max-w-[90%] sm:max-w-md md:max-w-lg lg:max-w-2xl px-4 text-left">
+                <p className="text-base sm:text-lg md:text-2xl leading-snug font-light">
+                  {slide.quote}
+                  <br />
+                  <span className="font-semibold text-blue-300">
+                    {slide.highlight}
+                  </span>
+                </p>
+                <h1 className="mt-3 text-xl sm:text-2xl md:text-4xl font-bold">
+                  {slide.name}
+                </h1>
+              </div>
+            )}
           </div>
+        ))}
+      </div>
+
+      {/* Navigation buttons */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full"
+      >
+        &#10094;
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white p-2 sm:p-3 rounded-full"
+      >
+        &#10095;
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+              currentSlide === index
+                ? "bg-blue-400 w-5 sm:w-6"
+                : "bg-white/70 hover:bg-white"
+            }`}
+          ></button>
         ))}
       </div>
     </section>

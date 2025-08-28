@@ -5,7 +5,8 @@ import FeaturedWorks from "./FeaturedWorks/FeaturedWorks";
 import GetInTouch from "./GetInTouch/GetInTouch";
 import WeDO from "./GetInTouch/WeDO";
 import Hero from "./Hero/Hero";
-import VisionMission from "./VisionMission/VisionMission";
+import Publications from "./Publications/Publications";
+import RecentActivities from "./RecentActivities/RecentActivities";
 import WhatIDo from "./WhatIDo/WhatIDo";
 
 
@@ -13,16 +14,14 @@ const Home = () => {
     return (
         <div>
             <Hero />
-            <About/>
+            <About />
             <WhatIDo />
-            
-            
-            <BentoGrid/>
-            <VisionMission />
-            <FeaturedWorks />
-            
+            <BentoGrid />
+            {/* <FeaturedWorks />*/}
             {/* <GetInTouch /> */}
-            <WeDO/>
+            <Publications />
+            <RecentActivities />
+            <WeDO />
         </div>
     );
 };

@@ -2,7 +2,7 @@
 import daisyui from "daisyui"
 
 export default {
-    darkMode: ["class"],
+    darkMode: ["className"],
     content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -70,6 +70,7 @@ export default {
   },
   plugins: [
     daisyui,
+      // eslint-disable-next-line no-undef
       require("tailwindcss-animate")
 ],
 }
