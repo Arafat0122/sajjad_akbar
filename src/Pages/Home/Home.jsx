@@ -1,5 +1,4 @@
-
-import About from "./About/About";
+import AboutHome from "./About/AboutHome";
 import BentoGrid from "./About/BentoGrid";
 import FeaturedWorks from "./FeaturedWorks/FeaturedWorks";
 import GetInTouch from "./GetInTouch/GetInTouch";
@@ -14,7 +13,7 @@ const Home = () => {
     return (
         <div>
             <Hero />
-            <About />
+            <AboutHome />
             <WhatIDo />
             <BentoGrid />
             {/* <FeaturedWorks />*/}

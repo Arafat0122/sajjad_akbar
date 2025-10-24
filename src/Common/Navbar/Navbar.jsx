@@ -44,7 +44,7 @@ const Navbar = () => {
 
                 <div>
                     {/* Top Section */}
-                    <div className="max-w-7xl px-6 md:px-12 flex justify-end items-center h-16">
+                    <div className="max-w-7xl px-6 md:px-12 flex justify-end items-center h-10">
                         {/* Right: Flag, Search, Bank */}
                         <div className="flex items-center space-x-3">
                             <img
@@ -66,7 +66,7 @@ const Navbar = () => {
                     <hr className="border-gray-400/30" />
 
                     {/* Bottom Section */}
-                    <div className="max-w-7xl px-6 md:px-12 flex justify-end items-center h-16">
+                    <div className="max-w-7xl px-6 md:px-12 flex justify-end items-center h-10">
                         {/* Desktop Menu */}
                         <ul className="hidden md:flex space-x-6 items-center">
                             {navItems.map(({ to, label }) => (
